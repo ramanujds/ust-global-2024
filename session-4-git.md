@@ -56,3 +56,171 @@ Version Control Systems are tools that manage changes to source code, documents,
 
 10. **Pull:**
     - Downloading changes from a remote repository to a local machine.
+
+
+## Some basic Git commands:
+
+1. **Initialize a Repository:**
+   - **Command:** `git init`
+   - **Description:** Initializes a new Git repository in the current directory.
+   - **Example:**
+     ```bash
+     mkdir my_project
+     cd my_project
+     git init
+     ```
+
+2. **Clone a Repository:**
+   - **Command:** `git clone <repository_url>`
+   - **Description:** Creates a copy of a remote repository on your local machine.
+   - **Example:**
+     ```bash
+     git clone https://github.com/example/repo.git
+     ```
+
+3. **Add Changes to Staging Area:**
+   - **Command:** `git add <file>`
+   - **Description:** Stages changes for the next commit.
+   - **Example:**
+     ```bash
+     git add myfile.txt
+     ```
+
+4. **Commit Changes:**
+   - **Command:** `git commit -m "Commit message"`
+   - **Description:** Records staged changes in the repository.
+   - **Example:**
+     ```bash
+     git commit -m "Add initial version of myfile.txt"
+     ```
+
+5. **Check Repository Status:**
+   - **Command:** `git status`
+   - **Description:** Displays the current status of the working directory.
+   - **Example:**
+     ```bash
+     git status
+     ```
+
+6. **View Commit History:**
+   - **Command:** `git log`
+   - **Description:** Shows a log of all commits in the repository.
+   - **Example:**
+     ```bash
+     git log
+     ```
+
+7. **Create a Branch:**
+   - **Command:** `git branch <branch_name>`
+   - **Description:** Creates a new branch.
+   - **Example:**
+     ```bash
+     git branch feature-branch
+     ```
+
+8. **Switch to a Branch:**
+   - **Command:** `git checkout <branch_name>`
+   - **Description:** Switches to the specified branch.
+   - **Example:**
+     ```bash
+     git checkout feature-branch
+     ```
+
+9. **Merge Branches:**
+   - **Command:** `git merge <branch_name>`
+   - **Description:** Merges changes from one branch into another.
+   - **Example:**
+     ```bash
+     git checkout main
+     git merge feature-branch
+     ```
+
+10. **Push Changes to Remote Repository:**
+    - **Command:** `git push <remote_name> <branch_name>`
+    - **Description:** Uploads local branch commits to a remote repository.
+    - **Example:**
+      ```bash
+      git push origin main
+      ```
+
+11. **Pull Changes from Remote Repository:**
+    - **Command:** `git pull <remote_name> <branch_name>`
+    - **Description:** Downloads changes from a remote repository to your local machine.
+    - **Example:**
+      ```bash
+      git pull origin main
+      ```
+
+12. **Configure User Information:**
+    - **Command:** 
+      ```bash
+      git config --global user.name "Your Name"
+      git config --global user.email "your.email@example.com"
+      ```
+    - **Description:** Sets the name and email associated with your Git commits.
+    - **Example:**
+      ```bash
+      git config --global user.name "John Doe"
+      git config --global user.email "john.doe@example.com"
+      ```
+
+
+### Working with Git
+
+
+#### a. Code Reviews in Git
+Code reviews are essential for maintaining code quality and collaboration in a development team. Here's how to perform and raise a request for code reviews:
+
+- **Performing Code Reviews:**
+  - Review the changes in the pull request.
+  - Examine the code for readability, adherence to coding standards, and potential bugs.
+  - Provide constructive feedback on the code.
+
+- **Raising a Request for Code Reviews:**
+  - Create a new branch for your changes.
+  - Make necessary changes and commit them.
+  - Push the branch to the repository.
+  - Open a pull request, describing the changes and requesting a review.
+
+#### b. Merging in Git
+Merging is the process of combining changes from different branches into a single branch. Here's how to perform a merge in Git:
+
+- **Basic Merging:**
+  - Switch to the branch where you want to merge changes.
+  - Use the `git merge` command followed by the branch name to merge changes.
+
+- **Fast-forward Merging:**
+  - When the branch being merged is a direct ancestor, Git performs a fast-forward merge.
+
+#### c. Multiple Commits (Squash Commits) in Git
+Squashing commits allows combining multiple commits into a single commit for cleaner version history:
+
+- **Squashing Commits:**
+  - Use `git rebase -i HEAD~n`, where n is the number of commits you want to squash.
+  - In the interactive rebase, replace "pick" with "squash" or "s" for the commits you want to squash.
+
+#### d. Merge Conflicts in Git
+Merge conflicts occur when Git cannot automatically merge changes from different branches. Common scenarios leading to conflicts include:
+
+- **Simultaneous Edits:**
+  - When two branches modify the same line in conflicting ways.
+
+- **Deleted File or Renamed Files:**
+  - Conflicts can occur when one branch deletes a file or renames it while the other modifies it.
+
+#### e. Handling Merge Conflicts
+To resolve merge conflicts, follow these steps:
+
+- **Locate Conflicts:**
+  - Git marks conflicted files. Open these files to locate and resolve conflicts manually.
+
+- **Resolve Conflicts:**
+  - Edit the conflicted files, keeping the desired changes.
+
+- **Mark as Resolved:**
+  - Use `git add` to mark the files as resolved.
+
+- **Complete Merge:**
+  - Continue with `git merge --continue` or `git rebase --continue` to complete the merge.
+
+
