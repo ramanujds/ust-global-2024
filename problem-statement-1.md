@@ -34,7 +34,7 @@ You're getting close!
 Enter your guess: abc
 Error: Please enter a valid integer.
 
-Enter your guess: 70
+Enter your guess: 60
 Congratulations! You guessed the mysterious number!
 ```
 
