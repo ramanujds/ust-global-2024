@@ -1,6 +1,6 @@
 package model;
 
-public class Employee {
+public abstract class Employee implements EmployeeOperation {
 
     int id;
     String name;
@@ -8,12 +8,7 @@ public class Employee {
 
 
 
-    public void displayEmployee(){
-        System.out.println(this.getClass().getSimpleName()+" Details : ");
-        System.out.println("ID : "+id);
-        System.out.println("Name : "+name);
-        System.out.println("Salary : "+salary);
-    }
+    public abstract void displayEmployee();
 
 
     public Employee() {
