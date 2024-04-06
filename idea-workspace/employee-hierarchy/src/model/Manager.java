@@ -8,6 +8,7 @@ public class Manager extends Employee{
 
 
 
+
     public Manager(int id, String name, double salary, int teamSize) {
         super(id,name,salary);
         this.teamSize = teamSize;
@@ -21,9 +22,38 @@ public class Manager extends Employee{
         this.teamSize = teamSize;
     }
 
+    @Override
     public void displayEmployee(){
-        super.displayEmployee();
+
+        System.out.println(this.getClass().getSimpleName() + " Details : ");
+        System.out.println("ID : " + id);
+        System.out.println("Name : " + name);
+        System.out.println("Salary : " + salary);
         System.out.println("Team size : "+teamSize);
     }
 
+
+    public void work() {
+        System.out.println("Manager is working");
+    }
+
+
+    public void requestForLeave() {
+        System.out.println("Manager Requested for leave");
+    }
+
+//    @Override
+//    public String toString(){
+//        return "Employee - ID : "+id+" | Name : "+name+" | Salary : "+salary;
+//    }
+
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }
