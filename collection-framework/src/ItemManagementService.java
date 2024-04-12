@@ -26,6 +26,13 @@ public class ItemManagementService {
     }
 
 
+    public void removeItem(String name){
+
+    }
+
+    public Item updatePrice(String name, float price){
+        return null;
+    }
 
 
 }
