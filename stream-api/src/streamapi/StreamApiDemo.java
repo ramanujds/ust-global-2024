@@ -1,25 +1,34 @@
 package streamapi;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class StreamApiDemo {
 
     public static List<Integer> findEvens(List<Integer> list){
-       return list.stream()
-                   .filter(num -> num % 2 == 0)
-                   .collect(Collectors.toList());
+        List<Integer> evens = new ArrayList<>();
+        for (Integer num : list) {
+            if (num % 2 == 0) {
+                evens.add(num);
+            }
+        }
+        return evens;
     }
 
     public static List<Integer> getSquaredList(List<Integer> list){
-        return list.stream()
-                   .map(num -> num * num)
-                   .collect(Collectors.toList());
+        List<Integer> squares = new ArrayList<>();
+        for (Integer num : list) {
+            squares.add(num * num);
+        }
+        return squares;
     }
 
     public static int getSum(List<Integer> list){
-      return list.stream()
-               .reduce(0, (acc, num) -> acc + num);
+        int sum = 0;
+        for (Integer num : list) {
+            sum += num;
+        }
+        return sum;
     }
 
     public static void main(String[] args) {
