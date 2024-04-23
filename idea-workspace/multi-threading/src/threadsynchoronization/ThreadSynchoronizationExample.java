@@ -1,5 +1,7 @@
 package threadsynchoronization;
 
+import java.util.SortedMap;
+
 class BankAccount {
     private double balance;
 
@@ -17,7 +19,34 @@ class BankAccount {
             e.printStackTrace();
         }
         balance = newBalance;
+        System.out.println("Deposited "+amount);
+        System.out.println("New Balance : "+newBalance);
+        notifyAll();
     }
+
+    public synchronized void withdraw(double amount) throws InterruptedException {
+        if (balance < amount) {
+            System.out.println("Insufficient Balance");
+            System.out.println("Waiting for deposit");
+            wait();
+        }
+        if (balance < amount) {
+            System.out.println("Sorry still Insufficient Balance");
+            return;
+        }
+
+        double newBalance = balance - amount;
+        // Simulate some processing time
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Withdrawn "+amount);
+        balance = newBalance;
+        System.out.println("New Balance : "+newBalance);
+    }
+
 
     public double getBalance() {
         return balance;
@@ -35,7 +64,28 @@ class DepositThread extends Thread {
 
     public void run() {
 
-            account.deposit(depositAmount);
+        account.deposit(depositAmount);
+
+
+    }
+}
+
+class WithdrawThread extends Thread {
+    private BankAccount account;
+    private double withdrawAmount;
+
+    public WithdrawThread(BankAccount account, double withdrawAmount) {
+        this.account = account;
+        this.withdrawAmount = withdrawAmount;
+    }
+
+    public void run() {
+
+        try {
+            account.withdraw(withdrawAmount);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }
@@ -48,18 +98,20 @@ public class ThreadSynchoronizationExample {
 
         // Create two threads that deposit money into the same account
         DepositThread thread1 = new DepositThread(account, 1000);
-        DepositThread thread2 = new DepositThread(account, 5000);
+        DepositThread thread2 = new DepositThread(account, 2000);
 
         // Start the threads
         thread1.start();
         thread2.start();
 
+        WithdrawThread w1 = new WithdrawThread(account, 4000);
+        w1.start();
+
         // Wait for both threads to finish
-        thread1.join();
-        thread2.join();
+
 
         // Display the final balance
-        System.out.println("Final Balance: $" + account.getBalance());
+ //       System.out.println("Final Balance: $" + account.getBalance());
 
     }
 
