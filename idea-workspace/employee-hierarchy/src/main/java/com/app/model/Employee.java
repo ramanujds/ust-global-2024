@@ -1,4 +1,4 @@
-package model;
+package com.app.model;
 
 public abstract class Employee implements EmployeeOperation {
 

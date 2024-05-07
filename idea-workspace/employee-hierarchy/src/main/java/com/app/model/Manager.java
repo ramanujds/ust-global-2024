@@ -1,4 +1,4 @@
-package model;
+package com.app.model;
 
 public class Manager extends Employee{
 

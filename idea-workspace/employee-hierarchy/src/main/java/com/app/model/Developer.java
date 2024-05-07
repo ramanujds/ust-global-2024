@@ -1,4 +1,4 @@
-package model;
+package com.app.model;
 
 public class Developer extends Employee {
 

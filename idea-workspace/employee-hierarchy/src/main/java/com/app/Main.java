@@ -1,8 +1,9 @@
-import model.Developer;
-import model.Employee;
-import model.EmployeeOperation;
-import model.Manager;
-import service.EmployeeService;
+package com.app;
+
+import com.app.model.Developer;
+import com.app.model.Employee;
+import com.app.model.Manager;
+import com.app.service.EmployeeService;
 
 import java.util.Scanner;
 
@@ -53,7 +54,7 @@ public class Main {
 
         // Printing
         System.out.println("After Deleting : ");
-        employeeService.printAllEmployees();
+  //      employeeService.printAllEmployees();
 
 
     }
