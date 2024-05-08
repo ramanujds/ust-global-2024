@@ -11,6 +11,16 @@ public class EmployeeService {
 
     private EmployeeRepository repository = new EmployeeRepository();
 
+    public void setRepository(EmployeeRepository repository) {
+        this.repository = repository;
+    }
+
+    public EmployeeService(EmployeeRepository repository) {
+        this.repository = repository;
+    }
+
+    public EmployeeService() {
+    }
 
     public Employee addEmployee(Employee employee){
 
@@ -19,7 +29,8 @@ public class EmployeeService {
 
 
     public Employee searchEmployee(int id){
-       return repository.searchEmployee(id);
+
+        return repository.searchEmployee(id);
     }
 
     public List<Employee> getAllEmployees(){
